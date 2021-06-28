@@ -1,7 +1,8 @@
-//1.
+//1. 
 const express = require('express');
 const mongoose = require('mongoose'); //connect to MongoDB
 const bodyParser = require('body-parser'); //allows to take any request and parse it using JSON format
+require('dotenv/config');
 
 //2. Create Express App
 const app = express();
@@ -11,7 +12,7 @@ app.use(bodyParser.json());
 
 //6. Connect to Database
 mongoose.connect(
-    'mongodb+srv://m001-student:m001-mongodb-basics@sandbox.ylwqg.mongodb.net/task_002',
+    process.env.DB_CONNECTION,
     { useNewUrlParser: true, useUnifiedTopology: true },
     console.log('Connect to DB')
     );
